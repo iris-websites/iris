@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onload="checkHash()">
+        <video autoplay loop muted id="background" src="assets/sunset-bridge.1920x1080.mp4"></video>
+        <div id="content">
+          <div id="modal">
+            <div id="square">
+                <img id="pfp" src="assets/images/me.jpg" alt="my profile picture ^^">
+            </div>
+            <div id="infobox">
+                <p id="name">iris</p>
+                <p>17yo | she/her | lesbian</p>
+            </div>
+          </div>
+          <div id="pullout"></div>
+          <div id="nav">
+            <div class="tab" id="home" style="background-color: var(--prim); width: 80px;">
+                <img class="icon" src="assets/icons/home.svg" alt="home">
+            </div>
+            <div class="tab" id="about">
+                <img class="icon" src="assets/icons/about.svg" alt="about">
+            </div>
+            <div class="tab" id="updates">
+                <img class="icon" src="assets/icons/updates.svg" alt="updates">
+            </div>
+            <div class="tab" id="socials">
+                <img class="icon" src="assets/icons/socials.svg" alt="socials">
+            </div>
+            <div class="tab" id="support">
+                <img class="icon" src="assets/icons/support.svg" alt="support">
+            </div>
+          </div> 
+        </div>
+        <script src="index.js" async defer></script>
+    </body>
+    <div id="info_about" class="info">
+        <p class="heading">about me</p>
+        <p class="contents">
+            haiii, i'm iris (antiviiris), i'm a programmer and a web developer. my favorite languages are javascript and osl ^^
+        </p>
+        <p class="contents">
+            in my free time i like to work on small projects and hang out with my friends, especially with my girlfriend (ily sophie <3)
+        </p>
+        <p class="contents">
+            i currently don't have any big projects im working on, i mostly like to support and contribute to other ppl's stuff.
+        </p>
+    </div>
+    <div id="info_updates" class="info">
+        <p class="heading">updates</p>
+        <p class="contents">
+            nothing noteworthy yet, pls come back later :>
+        </p>
+    </div>
+    <div id="info_socials" class="info">
+        <p class="heading">my accounts</p>
+        <img class="logo" src="assets/discord.svg" alt="discord acc">
+        <p class="handle">
+            antiviiris
+        </p>
+        <div class="horizontalRule"></div>
+        <img class="logo" src="assets/github.svg" alt="github acc">
+        <a class="handle" href="https://github.com/antiviiris">
+            antiviiris
+        </a>
+    </div>
+    <div id="info_support" class="info">
+        <p class="heading"> cool projects</p>
+        <a href="https://github.com/Mistium/Origin-OS" class="handle"> originOS </a>
+        <p class="contents">
+            a very functional webOS made by <a href="https://github.com/Mistium/Origin-OS">sophie</a> that has it's own custom scripting language.
+        </p>
+        <div class="horizontalRule"></div>
+        <a href="https://warp.mistium.com/" class="handle"> mistwarp </a>
+        <p class="contents">
+            also made by sophie, a fork of turbowarp that adds many quality of life features and customization options :>
+        </p>
+    </div>
+</html>

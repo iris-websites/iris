@@ -3,9 +3,11 @@
   --seco: #f5d7f5;
   --tert: #c8b6ff;
   --accent: #fbf3f1;
+  background-color: black;
 }
 
 html {
+    font-family: 'Lexend', sans-serif;
     width: 100%;
     height: 100%;
 }
@@ -22,9 +24,10 @@ a {
 }
 
 #background {
+    object-fit: cover;
+    top: -2%;
+    left: -2%;
     width: 105%;
-    left: -2.5%;
-    top: -5%;
     position: absolute;
     height: auto;
     filter: blur(5px);
@@ -98,6 +101,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     transition: width .4s, margin-left .4s, border-width .4s;
 }
 
@@ -123,11 +127,11 @@ a {
 }
 
 .contents {
-    font-size: 18px;
+    font-size: 14px;
     margin: 25px;
     margin-top: 0px;
     margin-bottom: 12px;
-    text-align: justify;
+    text-align: center;
     line-height: 20px;
 }
 

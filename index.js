@@ -52,7 +52,6 @@ function handleTabSwitch(e) {
 }
 
 let tabs = document.getElementsByClassName("tab");
-console.log(tabs.about);
 for (const element of tabs) {
   element.onclick = handleTabSwitch;
 }

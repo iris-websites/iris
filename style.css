@@ -105,7 +105,7 @@ a {
     transition: width .4s, margin-left .4s, border-width .4s;
 }
 
-#info {
+.info {
     display: none;
 }
 

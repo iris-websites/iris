@@ -1,57 +1,66 @@
-tab = "home";
+/**! @license AGPL-3.0-only
+ * Copyright (C) 2025  antiviiris and contributors
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, under version 3 of the License.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+'use strict';
 
-function displayPullout() {
-  let pullout = document.getElementById("pullout");
-  if (tab == "home") {
-    pullout.style = `
-            border-width: 0px;
-            margin-left: 0px;
-            width: 0%; 
-        `;
-    pullout.innerHTML = "";
-  } else {
-    pullout.style = `
-            border-width: 8px;
-            margin-left: 12px;
-            width: 100%; 
-        `;
-    let html = document.getElementById("info_" + tab);
-    pullout.innerHTML = html.innerHTML;
+void !function() {
+  const tabs = document.querySelectorAll('div.tab');
+  const tabIds = new Set(Array.from(tabs).map(node => node.dataset.opens));
+  const pullout = document.querySelector('div.modal ~ div:not(.navbar)');
+
+  let tab = 'home';
+  {
+    const hash = (window.location.hash || '#').slice(1);
+    if (hash.startsWith('tab-') && tabIds.has(hash.slice(4, Infinity))) {
+      tab = hash;
+    } else {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('tab') && tabIds.has(params.get('tab'))) {
+        tab = params.get('tab');
+      }
+    }
+  };  
+
+  function switchTab(id) {
+    if (id === tab) return;
+    const old = document.querySelector('div.navbar > div.tab[data-open]');
+    if (old) {
+      old.removeAttribute('data-open');
+      if (tab !== 'home') pullout.querySelector(
+        `div[data-tab="${tab}"]`
+      ).setAttribute('aria-hidden', 'true');
+    }
+    if (id === 'home') {
+      pullout.removeAttribute('data-open');
+    } else {
+      pullout.setAttribute('data-open', 'true');
+    }
+    document.querySelector(
+      `div.navbar > div.tab[data-opens="${id}"]`
+    ).setAttribute('data-open', 'true');
+    if (id !== 'home') pullout.querySelector(
+      `div[data-tab="${id}"]`
+    ).removeAttribute('aria-hidden');
+    tab = id;
   }
-}
-displayPullout();
 
-function switchTab(target) {
-  // css for tab highlighting
-  let tabs = document.getElementsByClassName("tab");
-  tabs[tab].style = "";
-  target.style = "background-color: var(--prim); width: 80px;";
-  // set tab variable to refer to later
-  tab = target.id;
-  // set the hash fragment
-  let currentUrl = new URL(window.location.href);
-  currentUrl.hash = "tab" + tab;
-  window.location.href = currentUrl.toString();
-  displayPullout();
-}
+  tabs.forEach(node => {
+    node.addEventListener('click', switchTab.bind(this, node.dataset.opens));
+  });
 
-// check hash fragment on page load to decide on a tab to open
-function checkHash() {
-  let currentUrl = new URL(window.location.href);
-  if (currentUrl.hash != "") {
-    let element = document.getElementById(currentUrl.hash.replace("#tab", ""));
-    console.log(currentUrl.hash);
-    switchTab(element);
-  }
-}
+  switchTab(tab);
 
-function handleTabSwitch(e) {
-  let target = e.target;
-  if (target.className == "icon") target = target.parentElement;
-  switchTab(target);
-}
+  document.body.querySelector('video.background').play();
 
-let tabs = document.getElementsByClassName("tab");
-for (const element of tabs) {
-  element.onclick = handleTabSwitch;
-}
+}();

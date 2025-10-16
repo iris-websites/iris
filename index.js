@@ -53,6 +53,7 @@ void !function() {
       `div[data-tab="${id}"]`
     ).removeAttribute('aria-hidden');
     tab = id;
+    window.location.hash = `#tab-${id}`;
   }
 
   tabs.forEach(node => {

@@ -1,88 +1,102 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>antiviiris</title>
-        <link rel="icon" type="image/x-icon" href=" https://avatars.rotur.dev/iris">
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    </head>
-    <body onload="checkHash()">
-        <video autoplay loop muted id="background" src="https://raw.githubusercontent.com/iris-websites/iris/main/assets/sunset-bridge.1920x1080.mp4"></video>
-        <div id="content">
-          <div id="modal">
-            <div id="square">
-                <img id="pfp" src="https://avatars.rotur.dev/iris" alt="my profile picture ^^">
-            </div>
-            <div id="infobox">
-                <p id="name">iris</p>
-                <p>17yo | she/her | lesbian</p>
-            </div>
-          </div>
-          <div id="pullout"></div>
-          <div id="nav">
-            <div class="tab" id="home" style="background-color: var(--prim); width: 80px;">
-                <img class="icon" src="assets/icons/home.svg" alt="home">
-            </div>
-            <div class="tab" id="about">
-                <img class="icon" src="assets/icons/about.svg" alt="about">
-            </div>
-            <div class="tab" id="updates">
-                <img class="icon" src="assets/icons/updates.svg" alt="updates">
-            </div>
-            <div class="tab" id="socials">
-                <img class="icon" src="assets/icons/socials.svg" alt="socials">
-            </div>
-            <div class="tab" id="support">
-                <img class="icon" src="assets/icons/support.svg" alt="support">
-            </div>
-          </div> 
+<html lang="en">
+  <!-- @license AGPL-3.0-only
+    -- Copyright (C) 2025  antiviiris and contributors
+    -- This program is free software: you can redistribute it and/or modify
+    -- it under the terms of the GNU Affero General Public License as published by
+    -- the Free Software Foundation, under version 3 of the License.
+    -- 
+    -- This program is distributed in the hope that it will be useful,
+    -- but WITHOUT ANY WARRANTY; without even the implied warranty of
+    -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    -- GNU Affero General Public License for more details.
+    -- 
+    -- You should have received a copy of the GNU Affero General Public License
+    -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="./" />
+    <title>antiviiris</title>
+    <link rel="icon" type="image/x-icon" href="https://avatars.rotur.dev/iris" crossorigin="" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preload" type="text/javascript" as="script" href="index.js" />
+    <link rel="preload" type="image/png" as="image" href="assets/background.png" />
+  </head>
+  <body>
+    <video
+      loop
+      muted
+      disablepictureinpicture
+      disableremoteplayback
+      virtualkeyboardpolicy="false"
+      poster="assets/background.png"
+      class="background"
+      src="assets/background.mp4"
+      preload="metadata"
+    ></video>
+    <main>
+      <div class="modal">
+        <!-- https://avatars.rotur.dev/iris/ -->
+        <div><img src="assets/profile.jpg" alt="my profile picture ^^"></img></div>
+        <div>
+          <p>iris</p>
+          <p>17yo | she/her | lesbian</p>
         </div>
-        <script src="index.js" async defer></script>
-    </body>
-    <div id="info_about" class="info">
-        <p class="heading">about me</p>
-        <p class="contents">
-            haiii, i'm iris (antiviiris), i'm a programmer and a web developer. my favorite languages are javascript and osl ^^
-        </p>
-        <p class="contents">
-            in my free time i like to work on small projects and hang out with my friends, especially with my girlfriend (ily sophie <3)
-        </p>
-        <p class="contents">
-            i currently don't have any big projects im working on, i mostly like to support and contribute to other ppl's stuff.
-        </p>
-    </div>
-    <div id="info_updates" class="info">
-        <p class="heading">updates</p>
-        <p class="contents">
-            nothing noteworthy yet, pls come back later :>
-        </p>
-    </div>
-    <div id="info_socials" class="info">
-        <p class="heading">my accounts</p>
-        <img class="logo" src="assets/discord.svg" alt="discord acc">
-        <p class="handle">
+      </div>
+      <div>
+        <div data-tab="about" aria-hidden="true">
+          <p class="heading">about me</p>
+          <p class="contents">
+            haiii, i&apos;m iris (antiviiris), i&apos;m a programmer and a web developer. my favorite languages are javascript and osl ^^
+          </p>
+          <p class="contents">
+            in my free time i like to work on small projects and hang out with my friends, especially with my girlfriend (ily sophie &lt;3)
+          </p>
+          <p class="contents">
+            i currently don&apos;t have any big projects im working on, i mostly like to support and contribute to other ppl&apos;s stuff.
+          </p>
+        </div>
+        <div data-tab="updates" aria-hidden="true">
+          <p class="heading">updates</p>
+          <p class="contents">
+            nothing noteworthy yet, pls come back later :&gt;
+          </p>
+        </div>
+        <div data-tab="socials" aria-hidden="true">
+          <p class="heading">my accounts</p>
+          <img class="logo" src="assets/socials/discord.svg" alt="discord acc">
+          <p class="handle">
             antiviiris
-        </p>
-        <div class="horizontalRule"></div>
-        <img class="logo" src="assets/github.svg" alt="github acc">
-        <a class="handle" href="https://github.com/antiviiris">
+          </p>
+          <div class="horizontalRule"></div>
+          <img class="logo" src="assets/socials/github.svg" alt="github acc">
+          <a class="handle" href="https://github.com/antiviiris/">
             antiviiris
-        </a>
-    </div>
-    <div id="info_support" class="info">
-        <p class="heading"> cool projects</p>
-        <a href="https://github.com/Mistium/Origin-OS" class="handle"> originOS </a>
-        <p class="contents">
-            a very functional webOS made by <a href="https://mistium.com/">sophie</a> that has it's own custom scripting language.
-        </p>
-        <div class="horizontalRule"></div>
-        <a href="https://warp.mistium.com/" class="handle"> mistwarp </a>
-        <p class="contents">
-            also made by sophie, a fork of turbowarp that adds many quality of life features and customization options :>
-        </p>
-    </div>
+          </a>
+        </div>
+        <div data-tab="support" aria-hidden="true">
+          <p class="heading">cool projects</p>
+          <a href="https://github.com/Mistium/Origin-OS" class="handle">originOS</a>
+          <p class="contents">
+            a very functional webOS made by <a href="https://mistium.com/">sophie</a> that has it&apos;s own custom scripting language.
+          </p>
+          <div class="horizontalRule"></div>
+          <a href="https://warp.mistium.com/" class="handle">mistwarp</a>
+          <p class="contents">
+            also made by sophie, a fork of turbowarp that adds many quality of life features and customization options :&gt;
+          </p>
+        </div>
+      </div>
+      <div class="navbar">
+        <div class="tab" data-opens="home" data-open="true"><img src="assets/icons/home.svg" alt="home"></img></div>
+        <div class="tab" data-opens="about"><img src="assets/icons/about.svg" alt="about"></img></div>
+        <div class="tab" data-opens="updates"><img src="assets/icons/updates.svg" alt="updates"></img></div>
+        <div class="tab" data-opens="socials"><img src="assets/icons/socials.svg" alt="socials"></img></div>
+        <div class="tab" data-opens="support"><img src="assets/icons/support.svg" alt="support"></img></div>
+      </div> 
+    </main>
+    <script src="index.js" defer></script>
+  </body>
 </html>
